@@ -1,8 +1,9 @@
 <?php
 
+use App\Http\Controllers\KooraNewsController;
 use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Route;
-
+use Goutte\Client;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,8 +14,12 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/ss', function () {
+Route::get('/',function(){
     return view('welcome');
 });
-Route::get('/',[MainController::class,'index'])->name('index');
+
+Route::get('koora',[KooraNewsController::class,'koora'])->name('koora');
+
+
+Route::get('/coronavirus',[MainController::class,'index'])->name('index');
+
